@@ -1,7 +1,11 @@
-# Habit Replacement Engine: product spec v0.2
+# Habit Replacement Engine: product spec v0.3
 
 Company: Artomai. Working title: TBD (candidates: Rewire, Outgrow, Seedless, Overwrite).
-Status: draft. Supersedes `habit-engine-concept.pdf` (v0.1). Evidence and source analysis are in `research-findings.md`.
+Status: draft. Supersedes `habit-engine-concept.pdf` (v0.1). Source analysis is in `research-findings.md`. Reward parameters come from `lit-review.md`.
+
+Change log:
+- v0.3, 2026-09-02: reward parameters locked from the lit-review sprint. Multiplier redefined as draw count. Hold phase added. Timeline Followback added to metrics.
+- v0.2, 2026-09-02: first full spec.
 
 This document is STE-informed. A human gives final approval.
 
@@ -28,10 +32,12 @@ Technical Names used in this spec. Use each name identically everywhere, in code
 | Character | The user's profile. Traits describe how the Character behaves. Programs rewrite traits. |
 | Build | The Character's trait set at a point in time. Graduation produces a new Build. |
 | Surge mode | Days 0 to 3 of a Program. Highest reward density. |
-| Multiplier | The streak bonus applied to rewards. |
-| Soft reset | The response to a Lapse. The Multiplier drops. The Build, the money counter, and the Trigger map stay. |
-| Taper | The scheduled decrease in reward density from day 15 to Graduation. |
+| Draw | One roll of the reward engine. Each Draw pays a prize with probability 0.50. |
+| Multiplier | The number of Draws a beaten Craving earns. Starts at 1. Rises by 1 per consecutive clear day. Cap 8. |
+| Soft reset | The response to a Lapse. The Multiplier returns to 1. The Build, the money counter, and the Trigger map stay. |
+| Taper | The scheduled decrease in the Multiplier cap from day 15 to Graduation. |
 | Graduation | The end of a Program. The final unlock. |
+| Hold | An optional 60-day phase after Graduation. Multiplier cap 2. Bookend sessions optional. |
 | Lapse | A logged use during a Program. Never called relapse in copy. |
 
 ## 2. Thesis
@@ -158,18 +164,29 @@ The user can swap any ritual for another from the Pack, or write their own.
 
 Rewards fire on a beaten Craving, never on a daily check-in. Beating a Craving is the jackpot moment.
 
-| Parameter | Default | Basis | Lock in |
-|---|---|---|---|
-| Base reward probability on a beaten Craving | 0.35 | Variable ratio | Lit-review sprint |
-| Reward magnitude tiers | small 70%, medium 25%, large 5% | Variable magnitude | Lit-review sprint |
-| Multiplier step per consecutive clear day | +0.1, cap 3.0 | CM escalation | Lit-review sprint |
-| Soft reset on a Lapse | Multiplier returns to 1.0. Nothing else changes | CM reset, softened | Fixed |
-| Recovery bonus | First beaten Craving after a Lapse pays a guaranteed medium reward | Reward recovery fast | Fixed |
-| Surge mode, days 0 to 3 | Base probability 0.7 | Front-loaded density | Fixed |
-| Taper, day 15 to 30 | Base probability falls linearly to 0.15 | Taper | Lit-review sprint |
-| Graduation | One large fixed unlock. New Build. Next Program offered | Identity progression | Fixed |
+The engine copies the Petry prize-based CM protocol, with Draws in place of fishbowl pulls. See `lit-review.md` section 6 for the basis of each row.
 
-Reward types: Build trait reveals, dashboard unlocks, money milestones, cosmetic changes to the Character. No cash. No external prizes in v1.
+| Parameter | Value | Status |
+|---|---|---|
+| Draws per beaten Craving | Equal to the Multiplier | Evidence |
+| Prize probability per Draw | 0.50 | Evidence (Petry fishbowl) |
+| Prize tiers, given a prize | small 84%, large 15.6%, jumbo 0.4% | Evidence (Petry fishbowl) |
+| Multiplier | 1 + consecutive clear days, cap 8 | Evidence (Petry; Roll 1996; Romanowich 2015) |
+| Soft reset on a Lapse | Multiplier returns to 1. Nothing else changes | Evidence (Roll and Higgins 2000) |
+| Recovery bonus | First beaten Craving after a Lapse pays a guaranteed large prize | Design choice |
+| Reward latency | Prize shown within 1 second of the outcome tap | Evidence (Lussier 2006) |
+| Surge mode, days 0 to 3 | Multiplier starts at 2 | Design choice |
+| Taper, day 15 to 30 | Multiplier cap falls from 8 to 4 by day 30. Prize probability stays 0.50 | Evidence for decay (Prendergast 2006; Ginley 2021). Shape is a design choice |
+| Rewarded Cravings per day | First 5 beaten Cravings each day earn Draws. Later ones log only | Design choice |
+| Night session bonus | A completed night session adds 1 Draw to the next beaten Craving | Design choice |
+| Graduation | One jumbo fixed unlock. New Build. Hold or next Program offered | Design choice |
+
+Prize types by tier:
+- Small: Character cosmetic, dashboard detail, a line added to the Build.
+- Large: trait reveal on the Character, a money-reclaimed milestone release toward the pledge.
+- Jumbo: full trait rewrite, pledge release, Build snapshot.
+
+No cash. No external prizes in v1. The money-reclaimed pledge carries the magnitude: it is the user's own money, released toward a named purchase.
 
 ### 7.7 Quest
 
@@ -189,7 +206,7 @@ One Quest per day from the top of the action list.
 
 Rules:
 - The night session is scheduled at the start of the user's highest-risk Cue slot. It fills the slot.
-- Sessions are optional. Missed sessions do not break the streak. Completed sessions raise the Multiplier by +0.05 each, inside the cap.
+- Sessions are optional. Missed sessions do not break the streak. A completed night session adds 1 Draw to the next beaten Craving.
 - Days 1 to 28 include withdrawal-window content in the night session: sleep disruption, irritability, vivid dreams. This content tells the user what is normal and how long it lasts.
 
 ### 7.9 State dial
@@ -250,9 +267,10 @@ A Lapse is logged like a Craving, with "used" as the outcome.
 | 0 to 3 | Surge mode | Highest | Catch and Ride habit. Card read. First Quests. |
 | 4 to 14 | Withdrawal window | High | Night session content on sleep, mood, dreams. Replacement rituals bed in. |
 | 15 to 29 | Taper | Falling | Real-world rewards take over: money, sleep, clear mornings. Fewer prompts. |
-| 30 | Graduation | One unlock | New Build. Offer the next Program. |
+| 30 | Graduation | One unlock | New Build. Offer the Hold or the next Program. |
+| 31 to 90 | Hold (optional) | Low. Multiplier cap 2 | Catch and Ride stay live. Bookend sessions optional. Contrast phase and Replacement rituals stay mandatory. |
 
-The user can extend a Program by 30 days once. A second extension is offered only after a Lapse in the last week.
+The Hold exists because longer active reward periods predict long-term abstinence (Ginley 2021). Skills content stays mandatory through the Hold because skills carry the effect after rewards stop (Budney 2006, Kadden 2007).
 
 ## 9. Content model
 
@@ -299,7 +317,7 @@ Pilot success metrics, from v0.1:
 
 - D7 and D30 retention versus quit-app benchmarks.
 - Percentage of logged Cravings marked beaten.
-- Self-reported use days at day 30 versus baseline.
+- Self-reported use days at day 30 versus baseline, measured with the Timeline Followback so the result is comparable to the trial literature.
 
 Instrumentation events, minimum set:
 
@@ -338,26 +356,30 @@ Out, v2 and later:
 
 | Mechanic | Source | Strength |
 |---|---|---|
-| Variable-ratio rewards on beaten Cravings | Operant conditioning literature | Strong, general |
-| Contingency management structure: escalation, reset, front-loading | Prendergast 2006; 2021 JAMA Psychiatry CM meta-analysis | Strong, substance use |
+| Prize-probability rewards on beaten Cravings | Petry prize-based CM; Lussier 2006 | Strong, substance use |
+| Escalation with reset | Roll 1996; Roll and Higgins 2000; Romanowich and Lamb 2015 | Strong, smoking |
+| CM overall | Prendergast 2006 (d = 0.42); Bolívar 2021 (d = 0.58); Ginley 2021 (OR 1.22 at 1 year) | Strong, substance use. Decays after rewards stop |
+| Rewards now, skills for later | Budney 2000, 2006; Kadden 2007; Budney 2015 (computer delivery) | Strong, cannabis |
+| Content-only digital programs are weak | Boumparis 2019 (g = 0.12); ICan 2023 (d = 0.06); Rooke 2013 | Strong, cannabis. Negative result |
 | Implementation intentions in the contrast phase | Gollwitzer and Sheeran 2006, d=0.65 | Strong, general |
 | Competing imagery in the Ride | Kavanagh, Andrade, May 2005; Solbrig 2019; Bakou 2021 | Strong in weight loss. Pilot in alcohol. Untested in cannabis |
 | Imagery paired with obstacle contrast | Kappes and Oettingen 2011 | Strong, general |
 | Breathe phase, cyclic sighing | Balban 2023 | Moderate. Mood and arousal only |
 | Stillness and acceptance copy | Bowen 2014 MBRP | Moderate. Single site |
 | Identity progression, Character frame | Behavior-change identity literature | Moderate, indirect |
-| Craving-moment intervention as the differentiator | ICan RCT 2023 (negative result for content-only) | Lesson, not evidence |
 | No magical-thinking content | Di Forti 2019 | Safety rationale |
+| BCT coverage | Michie 2013 taxonomy, 14 techniques mapped | Reporting standard |
 
-Full citations and links: `research-findings.md`.
+Full citations and links: `research-findings.md` and `lit-review.md`.
 
 ## 14. Open questions
 
-1. Reward parameters in 7.6 marked "lit-review sprint." Read Prendergast 2006 and the 2021 CM meta-analysis, then set them.
-2. Name and brand direction. "Overwrite" fits the Program and Build vocabulary best.
-3. Widget feasibility per platform. iOS lock-screen widgets cannot open a deep link without an unlock on some versions. Confirm the under-2-seconds target on both platforms.
-4. Imagery script generation: template fill at onboarding, or one model call at onboarding with caching. Both keep the Craving path offline.
-5. University partner for the pre-registered pilot. The competing-imagery question in section 11 is the study.
+1. Reward magnitude. Every CM trial pays money. In-app prizes have unknown magnitude. The pledge release is the closest analog. Test whether users set a pledge at onboarding.
+2. Verification. CM trials verify abstinence with tests. v1 uses self-report. Decide before the pilot whether the pilot arm adds optional verification.
+3. Name and brand direction. "Overwrite" fits the Program and Build vocabulary best.
+4. Widget feasibility per platform. iOS lock-screen widgets cannot open a deep link without an unlock on some versions. Confirm the under-2-seconds target on both platforms.
+5. Imagery script generation: template fill at onboarding, or one model call at onboarding with caching. Both keep the Craving path offline.
+6. University partner for the pre-registered pilot. The competing-imagery question in section 11 is the study.
 
 ## 15. Assumptions
 
@@ -368,8 +390,8 @@ Full citations and links: `research-findings.md`.
 
 ## 16. Next steps
 
-1. Lock the reward parameters through the lit-review sprint.
+1. Write the cannabis Pack content: Cue slot templates, rituals, Quest bank, withdrawal notes.
 2. Wireframe the Catch, Ride, and Card flows.
-3. Write the cannabis Pack content: Cue slot templates, rituals, Quest bank, withdrawal notes.
-4. Draft the language ban list into a lint rule for copy.
-5. Choose the name.
+3. Draft the language ban list into a lint rule for copy.
+4. Choose the name.
+5. Lit-review sprint 2: Cochrane search for cannabis CM, Budney 2006 full text, Petry recovery rule.
