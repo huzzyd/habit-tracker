@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Patrick Hand', 'Segoe Print', 'Comic Sans MS', cursive; color: #1f1f1f; }
+    a { color: #b45309; } a:hover { color: #92400e; }
+  </style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #f7f6f2; display: flex; flex-direction: column; gap: 24px; padding: 72px 24px 40px 24px; border: 2px solid #1f1f1f;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline;">
+    <div style="font-size: 14px; color: #9a9a9a; letter-spacing: 1px;">RIDE</div>
+    <div style="font-size: 30px;">14:32 left</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px;">
+    <div style="display: flex; flex-direction: column; gap: 6px; align-items: center;">
+      <div style="height: 8px; width: 100%; background: #b45309; border-radius: 4px;"></div>
+      <div style="font-size: 14px;">Breathe</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; align-items: center;">
+      <div style="height: 8px; width: 100%; background: #d9d6ce; border-radius: 4px;"></div>
+      <div style="font-size: 14px; color: #9a9a9a;">Image</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; align-items: center;">
+      <div style="height: 8px; width: 100%; background: #d9d6ce; border-radius: 4px;"></div>
+      <div style="font-size: 14px; color: #9a9a9a;">Contrast</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; align-items: center;">
+      <div style="height: 8px; width: 100%; background: #d9d6ce; border-radius: 4px;"></div>
+      <div style="font-size: 14px; color: #9a9a9a;">Replace</div>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;">
+    <div style="width: 220px; height: 220px; border-radius: 110px; border: 3px solid #1f1f1f; display: flex; align-items: center; justify-content: center; background: #ffffff;">
+      <div style="width: 140px; height: 140px; border-radius: 70px; border: 2px dashed #9a9a9a; display: flex; align-items: center; justify-content: center; font-size: 22px; text-align: center; line-height: 1.2;">In. In.<br>Long out.</div>
+    </div>
+    <div style="font-size: 22px; text-align: center; line-height: 1.3; max-width: 300px;">Two breaths in through the nose. One long breath out through the mouth.</div>
+    <div style="font-size: 14px; color: #9a9a9a; text-align: center;">90 seconds. The circle grows and shrinks with the audio.</div>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 2px dashed #9a9a9a; border-radius: 12px;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1f1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path></svg>
+    <div style="font-size: 16px;">Audio is playing. Phone in a pocket is fine.</div>
+  </div>
+
+  <div style="height: 48px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #9a9a9a;">End the Ride early</div>
+</div>
+</x-dc>
+</body>
+</html>

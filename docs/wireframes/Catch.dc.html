@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Patrick Hand', 'Segoe Print', 'Comic Sans MS', cursive; color: #1f1f1f; }
+    a { color: #b45309; } a:hover { color: #92400e; }
+  </style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #f7f6f2; display: flex; flex-direction: column; gap: 28px; padding: 72px 24px 40px 24px; border: 2px solid #1f1f1f;">
+  <div style="display: flex; flex-direction: column; gap: 4px;">
+    <div style="font-size: 14px; color: #9a9a9a; letter-spacing: 1px;">CATCH</div>
+    <div style="font-size: 30px;">Logged. 22:14</div>
+    <div style="font-size: 14px; color: #9a9a9a;">Time is automatic. The log is saved before this screen paints.</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="font-size: 16px; color: #9a9a9a;">Cue slot</div>
+    <div style="display: flex; justify-content: space-between; align-items: center; height: 56px; padding: 0 16px; border: 2px solid #1f1f1f; border-radius: 12px; background: #ffffff;">
+      <div style="font-size: 20px;">Wind-down on the couch</div>
+      <div style="font-size: 16px; color: #b45309;">Change</div>
+    </div>
+    <div style="font-size: 14px; color: #9a9a9a;">Pre-selected by time and place from the Trigger map.</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="font-size: 16px; color: #9a9a9a;">How strong</div>
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px;">
+      <div style="height: 56px; display: flex; align-items: center; justify-content: center; border: 2px solid #1f1f1f; border-radius: 12px; background: #ffffff; font-size: 22px;">1</div>
+      <div style="height: 56px; display: flex; align-items: center; justify-content: center; border: 2px solid #1f1f1f; border-radius: 12px; background: #ffffff; font-size: 22px;">2</div>
+      <div style="height: 56px; display: flex; align-items: center; justify-content: center; border: 2px solid #1f1f1f; border-radius: 12px; background: #1f1f1f; color: #ffffff; font-size: 22px;">3</div>
+      <div style="height: 56px; display: flex; align-items: center; justify-content: center; border: 2px solid #1f1f1f; border-radius: 12px; background: #ffffff; font-size: 22px;">4</div>
+      <div style="height: 56px; display: flex; align-items: center; justify-content: center; border: 2px solid #1f1f1f; border-radius: 12px; background: #ffffff; font-size: 22px;">5</div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="font-size: 16px; color: #9a9a9a;">Right now I feel (optional)</div>
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px;">
+      <div style="height: 56px; display: flex; align-items: center; justify-content: center; border: 2px dashed #9a9a9a; border-radius: 12px; font-size: 16px; color: #9a9a9a;">1</div>
+      <div style="height: 56px; display: flex; align-items: center; justify-content: center; border: 2px dashed #9a9a9a; border-radius: 12px; font-size: 16px; color: #9a9a9a;">2</div>
+      <div style="height: 56px; display: flex; align-items: center; justify-content: center; border: 2px dashed #9a9a9a; border-radius: 12px; font-size: 16px; color: #9a9a9a;">3</div>
+      <div style="height: 56px; display: flex; align-items: center; justify-content: center; border: 2px dashed #9a9a9a; border-radius: 12px; font-size: 16px; color: #9a9a9a;">4</div>
+      <div style="height: 56px; display: flex; align-items: center; justify-content: center; border: 2px dashed #9a9a9a; border-radius: 12px; font-size: 16px; color: #9a9a9a;">5</div>
+    </div>
+    <div style="font-size: 14px; color: #9a9a9a;">State dial. Skipping it costs nothing.</div>
+  </div>
+
+  <div style="flex-grow: 1;"></div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div style="height: 64px; display: flex; align-items: center; justify-content: center; background: #b45309; color: #ffffff; font-size: 24px; border-radius: 32px;">Start the Ride</div>
+    <div style="height: 48px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #9a9a9a;">Skip. The Craving stays logged.</div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
