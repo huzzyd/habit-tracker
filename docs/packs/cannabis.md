@@ -149,7 +149,7 @@ Delivered in the night Bookend session. One note per day. Each note has three pa
 
 Copy rules:
 - Never say "withdrawal" in the user-facing note. Say "what is normal today."
-- Never give a medical instruction. "Water, warm shower, heat pack" are comfort actions, not treatment.
+- Never give a medical instruction. "Water, warm shower, heat pack" are comfort actions, not medical advice.
 - If the user logs a State dial of 1 on two consecutive days in this window, show the safety resources card.
 
 ## Cost model
@@ -181,4 +181,4 @@ Resources card: country-specific crisis line, a general helpline, and a link to 
 
 ## Ban list check
 
-Words that do not appear in user-facing lines of this Pack: addict, addiction, relapse, recovery, sober, clean, cure, treat, diagnose, frequency, manifest. The Program copy uses "Lapse," "clear day," "Program," and "what is normal today" in their place.
+The banned words are listed in `copy-lint.json` at the repo root. Run `node tools/copy-lint.mjs` to check this file. The Program copy uses "Lapse," "clear day," "Program," and "what is normal today" in their place.

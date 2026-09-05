@@ -1,0 +1,33 @@
+{
+  "banned": [
+    "addict",
+    "addicted",
+    "addiction",
+    "relapse",
+    "relapsed",
+    "recovery",
+    "recover",
+    "sober",
+    "sobriety",
+    "clean",
+    "cure",
+    "cured",
+    "treat",
+    "treatment",
+    "diagnose",
+    "diagnosis",
+    "frequency",
+    "manifest",
+    "manifestation"
+  ],
+  "paths": [
+    "docs/packs",
+    "docs/wireframes",
+    "src",
+    "app",
+    "content"
+  ],
+  "extensions": [".md", ".html", ".json", ".ts", ".tsx", ".js", ".jsx", ".txt", ".yaml", ".yml"],
+  "excludeDirs": ["node_modules", ".git", "transcripts"],
+  "allowMarker": "copy-lint: allow"
+}

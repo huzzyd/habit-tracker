@@ -392,7 +392,7 @@ Full citations and links: `research-findings.md` and `lit-review.md`.
 
 1. Cannabis Pack content: done, `packs/cannabis.md`.
 2. Wireframes for Card, Catch, Ride, Outcome, Reward, Lapse: done. Sources in `wireframes/`. Canvas: https://claude.ai/code/artifact/5866e4ed-d222-46ca-95b6-c174b7b7ad0f
-3. Draft the language ban list into a lint rule for copy.
+3. Copy lint: done. `copy-lint.json` and `tools/copy-lint.mjs`, run on every push by GitHub Actions.
 4. Choose the name.
 5. Lit-review sprint 2: Cochrane search for cannabis CM, Budney 2006 full text, Petry recovery rule.
 6. Wireframe the remaining flows: onboarding, Bookend sessions, dashboard, Character.
