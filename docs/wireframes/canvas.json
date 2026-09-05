@@ -24,7 +24,7 @@
     { "id": "open", "x": 0, "y": 1160, "w": 420, "text": "Open on this canvas: how Change works on the Cue slot, whether the State dial belongs on Catch or only in Bookend sessions, and the Draw animation length inside the 1-second rule.", "page": "craving-flow" },
     { "id": "onboarding-note", "x": 0, "y": -140, "w": 420, "text": "Onboarding: Pack pick > Map (one screen per Cue slot, 3 minimum) > cost model > Decide (Goal statement, pledge, widget). Ten minutes. Only Map and Decide are drawn.", "page": "onboarding-home" },
     { "id": "home-note", "x": 1200, "y": -100, "w": 420, "text": "Home is the Compound dashboard (spec 7.10). Money reclaimed is the hero. The Craving tap stays at the bottom on every home-level screen.", "page": "onboarding-home" },
-    { "id": "session-note", "x": 2160, "y": -100, "w": 360, "text": "Night session is scheduled at the start of the highest-risk Cue slot (spec 7.8). The day-4 note is from the Pack's withdrawal table." , "page": "onboarding-home" }
+    { "id": "session-note", "x": 2160, "y": -100, "w": 360, "text": "Night session is scheduled at the start of the highest-risk Cue slot (spec 7.8). The day-4 note is from the Pack's what-is-normal-today table." , "page": "onboarding-home" }
   ],
   "launch": { "view": "canvas", "page": "onboarding-home" }
 }

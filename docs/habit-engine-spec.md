@@ -395,4 +395,4 @@ Full citations and links: `research-findings.md` and `lit-review.md`.
 3. Copy lint: done. `copy-lint.json` and `tools/copy-lint.mjs`, run on every push by GitHub Actions.
 4. Choose the name.
 5. Lit-review sprint 2: Cochrane search for cannabis CM, Budney 2006 full text, Petry recovery rule.
-6. Wireframe the remaining flows: onboarding, Bookend sessions, dashboard, Character.
+6. Wireframes for Map, Decide, Home, Character, night session: done, second page of the same canvas. Not drawn: Pack pick, cost model, morning session, Graduation.
