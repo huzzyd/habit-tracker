@@ -393,7 +393,7 @@ Full citations and links: `research-findings.md` and `lit-review.md`.
 ## 15. Assumptions
 
 - Mobile-first. iOS 17 and Android 8 minimum. A one-tap entry surface that logs without the app is a hard requirement, so a web-only v1 does not meet the spec.
-- Stack proposed in `decisions/001-catch-entry-and-stack.md`: Expo with Swift and Kotlin targets for the entry surfaces. The data model in section 10 is logical only.
+- Stack options in `decisions/001-catch-entry-and-stack.md`: Expo or Flutter, with Swift and Kotlin targets for the entry surfaces. The data model in section 10 is logical only.
 - One Program runs at a time per user in v1.
 - Copy in this spec is placeholder. Product voice is defined in `VOICE.md` when it exists.
 

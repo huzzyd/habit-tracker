@@ -38,19 +38,32 @@ Cross-platform frameworks:
    - Android: Quick Settings tile (all versions). Then the lock screen widget where the OS offers it (Android 16 QPR2+). Then an optional ongoing notification action for one-tap logging on older phones.
 3. Measured target. Time from phone raise to logged Craving is 2 seconds or less on a Face ID iPhone and on a Pixel through the tile. This replaces "under 2 seconds from the lock screen" in spec 7.2.
 4. Minimum OS: iOS 17, Android 8. Controls, the watch surface, and the Android lock screen widget are progressive additions, not requirements.
-5. Stack: Expo (React Native) for the app, with native targets for the entry surfaces. Swift for WidgetKit, the Control, and the watch app. Kotlin for the Glance widget, the TileService, and the notification action. The Ride audio and timer live in the app. The log write lives in the native layer and never waits for the JavaScript runtime.
+5. Stack: a cross-platform app (Expo or Flutter, see below) with native targets for the entry surfaces. Swift for WidgetKit, the Control, and the watch app. Kotlin for the Glance widget, the TileService, and the notification action. The Ride audio and timer live in the app. The log write lives in the native layer and never waits for the app runtime.
+
+Expo versus Flutter. Both need the same Swift and Kotlin targets, because neither runs code inside a widget process. The differences that matter here:
+
+| Criterion | Expo (React Native) | Flutter |
+|---|---|---|
+| iOS widgets | Expo Widgets, stable in SDK 57, iOS only. Config plugins generate the target | home_widget, both platforms. Interactive callbacks run in the app process, so the log write stays in Swift either way |
+| Android widgets | Custom Kotlin module | home_widget covers Glance and XML widgets with the same package |
+| Watch app | SwiftUI, bridged | SwiftUI, bridged. A Flutter watch toolchain exists in closed beta only |
+| Background audio for the Ride | expo-audio or react-native-track-player | just_audio with audio_service |
+| Over-the-air updates | EAS Update | Shorebird |
+| Language | TypeScript | Dart |
+
+Neither wins on the entry surfaces. Pick by the language the developer ships fastest in. Flutter has a small edge on Android widgets. Expo has a small edge on the iOS widget tooling and on the hiring pool.
 
 ## Consequences
 
 - The Catch screen becomes optional. The Ride can start from a notification if the app is not open.
 - Two native modules ship in v1. A solo developer can build them, but the pilot build must be tested on a locked device for each surface.
 - The iOS 18 Control needs a device test for the no-unlock path. Until then, marketing copy does not promise "without unlocking."
-- Expo Go cannot run the app. Development builds only.
+- With Expo, Expo Go cannot run the app. Development builds only. With Flutter, the widget extension is a separate Xcode target in the same App Group.
 
 ## Alternatives considered
 
 - Native Swift and Kotlin apps. Most direct, two full codebases. Rejected for v1 on team size.
-- Flutter with home_widget. Comparable to Expo for the widget surfaces, no Live Activity or watch support in the package. Rejected on ecosystem fit.
+- Flutter with home_widget. Equal to Expo on the entry surfaces. Kept as a co-equal option; see the table in the decision. An earlier draft of this record rejected it on a claim about package support that was not checked. That line was wrong.
 - Web app with a PWA shortcut. No lock screen surface on either platform. Rejected.
 
 ## Open items
