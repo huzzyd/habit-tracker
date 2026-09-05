@@ -1,18 +1,30 @@
 {
+  "pages": [
+    { "id": "craving-flow", "name": "Craving flow" },
+    { "id": "onboarding-home", "name": "Onboarding, home, sessions" }
+  ],
   "artboards": [
-    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 390, "h": 844, "title": "Card" },
-    { "file": "Catch.dc.html", "x": 480, "y": 0, "w": 390, "h": 844, "title": "Catch" },
-    { "file": "RideBreathe.dc.html", "x": 960, "y": 0, "w": 390, "h": 844, "title": "Ride. Breathe" },
-    { "file": "RideContrast.dc.html", "x": 1440, "y": 0, "w": 390, "h": 844, "title": "Ride. Contrast" },
-    { "file": "Outcome.dc.html", "x": 960, "y": 1000, "w": 390, "h": 844, "title": "Outcome" },
-    { "file": "Reward.dc.html", "x": 1440, "y": 1000, "w": 390, "h": 844, "title": "Reward" },
-    { "file": "Lapse.dc.html", "x": 1920, "y": 1000, "w": 390, "h": 844, "title": "Lapse" }
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 390, "h": 844, "title": "Card", "page": "craving-flow" },
+    { "file": "Catch.dc.html", "x": 480, "y": 0, "w": 390, "h": 844, "title": "Catch", "page": "craving-flow" },
+    { "file": "RideBreathe.dc.html", "x": 960, "y": 0, "w": 390, "h": 844, "title": "Ride. Breathe", "page": "craving-flow" },
+    { "file": "RideContrast.dc.html", "x": 1440, "y": 0, "w": 390, "h": 844, "title": "Ride. Contrast", "page": "craving-flow" },
+    { "file": "Outcome.dc.html", "x": 960, "y": 1000, "w": 390, "h": 844, "title": "Outcome", "page": "craving-flow" },
+    { "file": "Reward.dc.html", "x": 1440, "y": 1000, "w": 390, "h": 844, "title": "Reward", "page": "craving-flow" },
+    { "file": "Lapse.dc.html", "x": 1920, "y": 1000, "w": 390, "h": 844, "title": "Lapse", "page": "craving-flow" },
+    { "file": "MapSlot.dc.html", "x": 0, "y": 0, "w": 390, "h": 844, "title": "Onboarding. Map", "page": "onboarding-home" },
+    { "file": "Decide.dc.html", "x": 480, "y": 0, "w": 390, "h": 844, "title": "Onboarding. Decide", "page": "onboarding-home" },
+    { "file": "Home.dc.html", "x": 1200, "y": 0, "w": 390, "h": 844, "title": "Home", "page": "onboarding-home" },
+    { "file": "Character.dc.html", "x": 1680, "y": 0, "w": 390, "h": 844, "title": "Character", "page": "onboarding-home" },
+    { "file": "NightSession.dc.html", "x": 2160, "y": 0, "w": 390, "h": 844, "title": "Night session", "page": "onboarding-home" }
   ],
   "annotations": [
-    { "id": "flow", "x": 0, "y": -140, "w": 420, "text": "Flow: Card tap > Catch (under 2 seconds) > Ride, four phases > Outcome > Reward or Lapse.\nSpec sections 7.2 to 7.6 and 7.12." },
-    { "id": "ride-phases", "x": 960, "y": -100, "w": 360, "text": "Ride shows two of four phases. Image (3 min) and Replace (remainder) are not drawn. Contrast is mandatory whenever Image runs." },
-    { "id": "outcome-branch", "x": 480, "y": 1000, "w": 360, "text": "Outcome branches: Beaten goes right to Reward. Used goes to Lapse. Partial returns home with the log kept." },
-    { "id": "open", "x": 0, "y": 1160, "w": 420, "text": "Open on this canvas: how Change works on the Cue slot, whether the State dial belongs on Catch or only in Bookend sessions, and the Draw animation length inside the 1-second rule." }
+    { "id": "flow", "x": 0, "y": -140, "w": 420, "text": "Flow: Card tap > Catch (under 2 seconds) > Ride, four phases > Outcome > Reward or Lapse.\nSpec sections 7.2 to 7.6 and 7.12.", "page": "craving-flow" },
+    { "id": "ride-phases", "x": 960, "y": -100, "w": 360, "text": "Ride shows two of four phases. Image (3 min) and Replace (remainder) are not drawn. Contrast is mandatory whenever Image runs.", "page": "craving-flow" },
+    { "id": "outcome-branch", "x": 480, "y": 1000, "w": 360, "text": "Outcome branches: Beaten goes right to Reward. Used goes to Lapse. Partial returns home with the log kept.", "page": "craving-flow" },
+    { "id": "open", "x": 0, "y": 1160, "w": 420, "text": "Open on this canvas: how Change works on the Cue slot, whether the State dial belongs on Catch or only in Bookend sessions, and the Draw animation length inside the 1-second rule.", "page": "craving-flow" },
+    { "id": "onboarding-note", "x": 0, "y": -140, "w": 420, "text": "Onboarding: Pack pick > Map (one screen per Cue slot, 3 minimum) > cost model > Decide (Goal statement, pledge, widget). Ten minutes. Only Map and Decide are drawn.", "page": "onboarding-home" },
+    { "id": "home-note", "x": 1200, "y": -100, "w": 420, "text": "Home is the Compound dashboard (spec 7.10). Money reclaimed is the hero. The Craving tap stays at the bottom on every home-level screen.", "page": "onboarding-home" },
+    { "id": "session-note", "x": 2160, "y": -100, "w": 360, "text": "Night session is scheduled at the start of the highest-risk Cue slot (spec 7.8). The day-4 note is from the Pack's withdrawal table." , "page": "onboarding-home" }
   ],
-  "launch": { "view": "canvas" }
+  "launch": { "view": "canvas", "page": "onboarding-home" }
 }
