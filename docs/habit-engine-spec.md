@@ -1,9 +1,10 @@
-# Habit Replacement Engine: product spec v0.3
+# Habit Replacement Engine: product spec v0.4
 
 Company: Artomai. Working title: TBD (candidates: Rewire, Outgrow, Seedless, Overwrite).
 Status: draft. Supersedes `habit-engine-concept.pdf` (v0.1). Source analysis is in `research-findings.md`. Reward parameters come from `lit-review.md`.
 
 Change log:
+- v0.4, 2026-09-05: Catch becomes a two-layer log after ADR 001. Entry surfaces and minimum OS set. Stack proposed.
 - v0.3.1, 2026-09-05: lit-review sprint 2. Three cannabis reviews and the CM manual added to the evidence map. Recovery bonus marked as having no basis in the manual.
 - v0.3, 2026-09-02: reward parameters locked from the lit-review sprint. Multiplier redefined as draw count. Hold phase added. Timeline Followback added to metrics.
 - v0.2, 2026-09-02: first full spec.
@@ -113,21 +114,25 @@ Action list rules:
 
 The Card shows the Goal statement, the day number, and one tap target: "Craving."
 
-- The widget lives on the lock screen and on the watch face where available.
-- The Craving tap opens the Catch screen directly. No login step. No animation before the log.
+- The widget lives on the lock screen and on the watch where available. Entry surfaces per platform are set in `decisions/001-catch-entry-and-stack.md`.
+- The Craving tap logs the Craving in place. It does not wait for the app to open. No login step. No animation before the log.
+- Measured target: 2 seconds or less from phone raise to logged Craving. Measured on a Face ID iPhone and on a Pixel through the Quick Settings tile.
 - The Card text is the only copy on the widget. No Program name, no habit name. Privacy holds if someone sees the phone.
 
 ### 7.3 Catch: the Craving log
 
-Target: under 2 seconds from tap to logged.
+The log happens in two layers. The tap writes the first layer at once. The app asks for the second layer when it opens.
 
-Fields:
+First layer, written by the tap without the app:
 - Time: automatic.
-- Cue slot: pre-selected from the Trigger map by time and location. One tap to change.
-- Intensity: 1 to 5, one tap.
-- State: optional, one tap, from the State dial.
+- Cue slot: pre-selected from the Trigger map by time and location.
 
-After the log, the Ride starts. The user can skip the Ride. A skipped Ride still counts as a logged Craving.
+Second layer, asked on the Catch screen:
+- Cue slot: one tap to change the pre-selection.
+- Intensity: 1 to 5, one tap. Default 3 when unanswered.
+- State: optional, one tap, from the State dial. Default none.
+
+After the log, the Ride starts. If the app is not open, a notification offers the Ride. The user can skip the Ride. A skipped Ride still counts as a logged Craving.
 
 ### 7.4 Ride
 
@@ -381,14 +386,14 @@ Full citations and links: `research-findings.md` and `lit-review.md`.
 1. Reward magnitude. Every CM trial pays money. In-app prizes have unknown magnitude. The pledge release is the closest analog. Test whether users set a pledge at onboarding.
 2. Verification. CM trials verify abstinence with tests. v1 uses self-report. Decide before the pilot whether the pilot arm adds optional verification.
 3. Name and brand direction. "Overwrite" fits the Program and Build vocabulary best.
-4. Widget feasibility per platform. iOS lock-screen widgets cannot open a deep link without an unlock on some versions. Confirm the under-2-seconds target on both platforms.
+4. Widget feasibility: resolved in `decisions/001-catch-entry-and-stack.md`. Two device tests remain open there.
 5. Imagery script generation: template fill at onboarding, or one model call at onboarding with caching. Both keep the Craving path offline.
 6. University partner for the pre-registered pilot. The competing-imagery question in section 11 is the study.
 
 ## 15. Assumptions
 
-- Mobile-first. iOS and Android. The widget is a hard requirement, so a web-only v1 does not meet the spec.
-- No tech stack is chosen. The data model in section 10 is logical only.
+- Mobile-first. iOS 17 and Android 8 minimum. A one-tap entry surface that logs without the app is a hard requirement, so a web-only v1 does not meet the spec.
+- Stack proposed in `decisions/001-catch-entry-and-stack.md`: Expo with Swift and Kotlin targets for the entry surfaces. The data model in section 10 is logical only.
 - One Program runs at a time per user in v1.
 - Copy in this spec is placeholder. Product voice is defined in `VOICE.md` when it exists.
 
