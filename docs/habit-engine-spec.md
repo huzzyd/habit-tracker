@@ -4,6 +4,7 @@ Company: Artomai. Working title: TBD (candidates: Rewire, Outgrow, Seedless, Ove
 Status: draft. Supersedes `habit-engine-concept.pdf` (v0.1). Source analysis is in `research-findings.md`. Reward parameters come from `lit-review.md`.
 
 Change log:
+- v0.3.1, 2026-09-05: lit-review sprint 2. Three cannabis reviews and the CM manual added to the evidence map. Recovery bonus marked as having no basis in the manual.
 - v0.3, 2026-09-02: reward parameters locked from the lit-review sprint. Multiplier redefined as draw count. Hold phase added. Timeline Followback added to metrics.
 - v0.2, 2026-09-02: first full spec.
 
@@ -173,7 +174,7 @@ The engine copies the Petry prize-based CM protocol, with Draws in place of fish
 | Prize tiers, given a prize | small 84%, large 15.6%, jumbo 0.4% | Evidence (Petry fishbowl) |
 | Multiplier | 1 + consecutive clear days, cap 8 | Evidence (Petry; Roll 1996; Romanowich 2015) |
 | Soft reset on a Lapse | Multiplier returns to 1. Nothing else changes | Evidence (Roll and Higgins 2000) |
-| Recovery bonus | First beaten Craving after a Lapse pays a guaranteed large prize | Design choice |
+| Recovery bonus | First beaten Craving after a Lapse pays a guaranteed large prize | Design choice. No basis in the Petry and Stitzer manual |
 | Reward latency | Prize shown within 1 second of the outcome tap | Evidence (Lussier 2006) |
 | Surge mode, days 0 to 3 | Multiplier starts at 2 | Design choice |
 | Taper, day 15 to 30 | Multiplier cap falls from 8 to 4 by day 30. Prize probability stays 0.50 | Evidence for decay (Prendergast 2006; Ginley 2021). Shape is a design choice |
@@ -360,6 +361,9 @@ Out, v2 and later:
 | Escalation with reset | Roll 1996; Roll and Higgins 2000; Romanowich and Lamb 2015 | Strong, smoking |
 | CM overall | Prendergast 2006 (d = 0.42); Bolívar 2021 (d = 0.58); Ginley 2021 (OR 1.22 at 1 year) | Strong, substance use. Decays after rewards stop |
 | Rewards now, skills for later | Budney 2000, 2006; Kadden 2007; Budney 2015 (computer delivery) | Strong, cannabis |
+| CM for cannabis, pooled | Gates 2016 Cochrane (RR 2.55 abstinence); Lima 2024 (16 studies, moderate to high quality); Halicka 2025 (OR 3.78, wide interval) | Moderate, cannabis. Long-term unknown |
+| Acceptance-based copy on Outcome and Lapse | Halicka 2025 (acceptance-based therapy, OR 4.34 point abstinence) | Moderate, cannabis |
+| Reset to 1, no restore | Petry and Stitzer manual 2002 | Implementation standard |
 | Content-only digital programs are weak | Boumparis 2019 (g = 0.12); ICan 2023 (d = 0.06); Rooke 2013 | Strong, cannabis. Negative result |
 | Implementation intentions in the contrast phase | Gollwitzer and Sheeran 2006, d=0.65 | Strong, general |
 | Competing imagery in the Ride | Kavanagh, Andrade, May 2005; Solbrig 2019; Bakou 2021 | Strong in weight loss. Pilot in alcohol. Untested in cannabis |
@@ -394,5 +398,5 @@ Full citations and links: `research-findings.md` and `lit-review.md`.
 2. Wireframes for Card, Catch, Ride, Outcome, Reward, Lapse: done. Sources in `wireframes/`. Canvas: https://claude.ai/code/artifact/5866e4ed-d222-46ca-95b6-c174b7b7ad0f
 3. Copy lint: done. `copy-lint.json` and `tools/copy-lint.mjs`, run on every push by GitHub Actions.
 4. Choose the name.
-5. Lit-review sprint 2: Cochrane search for cannabis CM, Budney 2006 full text, Petry recovery rule.
+5. Lit-review sprint 2: done. See `lit-review.md` section 9. Budney 2006 and Kadden 2007 full texts still need a library request.
 6. Wireframes for Map, Decide, Home, Character, night session: done, second page of the same canvas. Not drawn: Pack pick, cost model, morning session, Graduation.

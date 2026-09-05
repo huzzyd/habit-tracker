@@ -48,12 +48,11 @@ Links:
 | Kadden et al., Addict Behav (2007) | n = 240. MET+CBT vs CM-only vs MET+CBT+CM vs case management | CM-only best at end of treatment. MET+CBT+CM best at 12 months | Same lesson, larger sample |
 | Budney et al., Drug Alcohol Depend (2015) | n = 75. Brief MET vs therapist MET/CBT/CM vs computer MET/CBT/CM | Computer arm matched therapist arm on abstinence and held at least as well | A computer can deliver the whole package |
 
-Voucher schedule in the Budney trials, from memory, unverified. Verify against the full text before you cite it.
-- Start at $1.50 per negative specimen.
-- Increase by $1.50 per consecutive negative specimen.
-- Bonus every third consecutive negative specimen.
-- Reset to the start value on a positive or missed specimen.
-- Two specimens per week. Maximum near $570 over 14 weeks.
+Voucher schedule. The Budney 2006 and Kadden 2007 full texts are not open access, so their exact values stay unverified. The Petry and Stitzer manual (section 9) gives the Budney and Higgins 1998 voucher design that these trials follow:
+- First negative specimen earns $2.50. The second earns $3.75. The third earns $5.00. The value keeps rising by $1.25 per consecutive negative specimen.
+- A $10 bonus pays on every third consecutive negative specimen.
+- A positive or missed specimen resets the value to the start.
+- By week 12 a specimen can be worth over $30.
 
 Links:
 - https://pubmed.ncbi.nlm.nih.gov/11142539/
@@ -129,8 +128,32 @@ Two gaps stay open:
 4. Section 11 metrics: add Timeline Followback as the use-days instrument.
 5. Section 13 evidence map: replace "Prendergast 2006; 2021 JAMA Psychiatry" with this document.
 
-## 8. Not read this sprint
+## 8. Not read in sprint 1
 
-- Full text of Budney 2006 for the exact voucher values.
-- The 2021 JAMA Psychiatry CM meta-analysis covers patients on opioid medication. A cannabis-specific CM meta-analysis was not located. Search Cochrane for "cannabis contingency management" next sprint.
-- Petry's prize CM recovery rule after a reset. Some protocols restore draw level after consecutive negatives. Confirm before you change the recovery bonus.
+- Full text of Budney 2006 for the exact voucher values. Sprint 2: still closed access. The manual example in section 3 stands in.
+- A cannabis-specific CM meta-analysis. Sprint 2: found three. See section 9.
+- Petry's prize CM recovery rule after a reset. Sprint 2: settled. See section 9.
+
+## 9. Sprint 2, 2026-09-05: cannabis reviews and the CM manual
+
+| Source | Scope | Result | What it changes |
+|---|---|---|---|
+| Gates et al., Cochrane (2016), PMID 27149547 | 23 RCTs, n = 4,045, psychosocial interventions for cannabis use disorder | Abstinence RR 2.55 at early follow-up. Five of six studies support adding vouchers to therapy. No intervention holds at 9 months or later. Evidence moderate to very low | Confirms rewards during, skills after. Confirms the long-term gap. Nothing to change |
+| Lima, Tardelli, Fidalgo, Eur Addict Res (2024), PMID 39374591 | 16 studies, CM for cannabis use disorder, adults and adolescents | CM "likely promotes abstinence" and more negative tests. Moderate to high quality. Long-term data limited | First cannabis-specific CM meta-analysis. Fills the gap from sprint 1 |
+| Halicka et al., Addiction (2025), PMID 40318070 | 22 trials, n = 3,304, age 16 and over | Abstinence-based CM added to MET-CBT: point abstinence OR 3.78 (95% CI 0.83 to 17.25), continuous OR 1.81 (0.61 to 5.41). Acceptance-based therapy: point abstinence OR 4.34 (1.74 to 10.80). Certainty low to very low | CM effect direction holds, intervals are wide. Acceptance-based copy (spec 7.12) gains a cannabis-specific source |
+| Petry and Stitzer, NIDA manual, Yale Training Series 6 (2002) | The prize CM implementation manual | Reset rule: a positive or missed sample resets draws to 1. No rule restores a prior level. One excused absence without documentation is allowed once. Sample fishbowl: 750 slips, 1 jumbo, 30 large, 75 medium, 269 small, 375 "Good job, try again." Max 10 draws per sample. Reinforcer features: frequency, immediacy, magnitude. Consequences must not slacken over time | The recovery bonus has no basis in the manual. The manual's own bowl has four tiers where the VA protocol has three |
+
+Links:
+- https://pubmed.ncbi.nlm.nih.gov/27149547/
+- https://pubmed.ncbi.nlm.nih.gov/39374591/
+- https://pubmed.ncbi.nlm.nih.gov/40318070/
+- https://ctnlibrary.org/pdf/cmmanual.pdf
+
+Decisions from sprint 2:
+
+1. Recovery bonus (spec 7.6). Keep it, marked "design choice, no basis in the manual." The manual's only leniency is one undocumented absence, not a softened reset.
+2. Prize tiers. Keep the three-tier VA protocol. The manual's four-tier bowl is an option if small prizes feel too frequent: small 71.7%, medium 20%, large 8%, jumbo 0.3% of winning slips.
+3. Taper. The manual warns that clinicians slacken monitoring and consequences over time and that this weakens CM. In the Taper only the Multiplier cap falls. Catch, Outcome, and Lapse logging never slacken.
+4. Acceptance copy. Halicka 2025 gives acceptance-based therapy a cannabis-specific effect. The Lapse copy and the Outcome copy keep the acceptance frame.
+
+Still not read: Budney 2006 and Kadden 2007 full texts. Both are closed access. Request them through a library or the authors before the pilot protocol cites their numbers.
